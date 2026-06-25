@@ -6,8 +6,8 @@ const { Card, ProgressBar, SyncBadge, StatGroup } = window.VitaminCalendarDesign
 const M_MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 const M_DOW = ['일','월','화','수','목','금','토'];
 const M_PEOPLE = [
-  { key: 'junghwa', name: '정화' },
   { key: 'haein',   name: '해인' },
+  { key: 'junghwa', name: '정화' },
 ];
 
 const mKey = (y, m, d) => `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
@@ -229,7 +229,7 @@ function MobileApp({ theme = 'sage', showWeekends = true, todayStyle = 'circle',
           <div style={{ width: 38, height: 38, background: 'var(--accent)', borderRadius: 11, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19, flexShrink: 0 }}>💊</div>
           <div>
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, letterSpacing: '-.3px', margin: 0 }}>비타민 체크 달력</h1>
-            <p style={{ fontSize: 11.5, color: 'var(--text-muted)', margin: '1px 0 0' }}>정화 &amp; 해인의 매일 비타민</p>
+            <p style={{ fontSize: 11.5, color: 'var(--text-muted)', margin: '1px 0 0' }}>해인 &amp; 정화의 매일 비타민</p>
           </div>
         </div>
         <SyncBadge status={sync} label={sync === 'idle' ? '로컬 전용' : undefined} />
@@ -237,14 +237,14 @@ function MobileApp({ theme = 'sage', showWeekends = true, todayStyle = 'circle',
 
       {/* stats */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 9, marginBottom: 10 }}>
-        <StatGroup person="junghwa" name="정화" stats={[{ value: jS.checked, label: '복용' }, { value: streak('junghwa'), label: '연속' }]} />
         <StatGroup person="haein" name="해인" stats={[{ value: hS.checked, label: '복용' }, { value: streak('haein'), label: '연속' }]} />
+        <StatGroup person="junghwa" name="정화" stats={[{ value: jS.checked, label: '복용' }, { value: streak('junghwa'), label: '연속' }]} />
       </div>
 
       {/* progress */}
       <Card padding="sm" style={{ marginBottom: 18, display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <ProgressBar person="junghwa" label="정화 복용률" value={jS.pct} />
         <ProgressBar person="haein" label="해인 복용률" value={hS.pct} />
+        <ProgressBar person="junghwa" label="정화 복용률" value={jS.pct} />
       </Card>
 
       {/* month switcher */}
