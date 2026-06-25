@@ -110,7 +110,7 @@ function DayRow({ y, m, d, isToday, past, weekend, holiday, rows, onToggle, toda
   );
 }
 
-function MobileApp({ theme = 'sage', showWeekends = true, todayStyle = 'circle' }) {
+function MobileApp({ theme = 'sage', showWeekends = true, todayStyle = 'circle', framed = true }) {
   const today = React.useMemo(() => new Date(), []);
   const [viewY, setViewY] = React.useState(today.getFullYear());
   const [viewM, setViewM] = React.useState(today.getMonth());
@@ -217,7 +217,11 @@ function MobileApp({ theme = 'sage', showWeekends = true, todayStyle = 'circle' 
     <div style={{
       ...themeVars,
       minHeight: '100%', background: 'var(--bg)', fontFamily: 'var(--font-body)',
-      color: 'var(--text)', padding: '64px 16px 40px', boxSizing: 'border-box',
+      color: 'var(--text)',
+      padding: framed
+        ? '64px 16px 40px'
+        : 'calc(env(safe-area-inset-top, 0px) + 14px) calc(env(safe-area-inset-right, 0px) + 16px) calc(env(safe-area-inset-bottom, 0px) + 28px) calc(env(safe-area-inset-left, 0px) + 16px)',
+      boxSizing: 'border-box',
     }}>
       {/* header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 18, gap: 10 }}>
