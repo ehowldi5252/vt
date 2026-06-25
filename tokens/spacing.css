@@ -1,0 +1,21 @@
+/* ── Vitamin Calendar · Spacing, radius & layout tokens ────────── */
+:root {
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 28px;
+
+  /* Radius */
+  --radius:     12px;  /* cards */
+  --radius-sm:  8px;   /* cells, buttons */
+  --radius-xs:  6px;   /* tiny chips */
+  --radius-pill:99px;  /* tags, tracks, badges */
+
+  /* Layout */
+  --page-max: 720px;
+  --cell-min-h: 90px;
+}

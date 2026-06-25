@@ -1,0 +1,73 @@
+<!-- @dsCard group="Vitamin Calendar" viewport="460x900" name="비타민 체크 달력 · iPhone" subtitle="iPhone Safari — day-list, live themes" -->
+<!-- @startingPoint section="Screens" subtitle="iPhone day-list vitamin tracker with theme tweaks" viewport="460x900" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비타민 체크 달력 · iPhone</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="./themes.js"></script>
+<script src="./holidays.js"></script>
+<script src="./config.js"></script>
+<script src="./storage.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: #e7e6ea;
+    font-family: var(--font-body);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 24px; box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="./tweaks-panel.jsx"></script>
+<script type="text/babel" src="./ios-frame.jsx"></script>
+<script type="text/babel" src="./MobileApp.jsx"></script>
+<script type="text/babel">
+  const { useTweaks, TweaksPanel, TweakSection, TweakSelect, TweakToggle, TweakRadio } = window;
+
+  const THEME_LABELS = Object.entries(window.VC_THEMES).map(([k, v]) => v.label);
+  const LABEL_TO_KEY = Object.fromEntries(Object.entries(window.VC_THEMES).map(([k, v]) => [v.label, k]));
+
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "Matcha & Peach",
+    "showWeekends": true,
+    "todayStyle": "circle"
+  }/*EDITMODE-END*/;
+
+  const TODAY_LABELS = { circle: '동그라미', dot: '점', ring: '테두리' };
+  const TODAY_KEYS = { '동그라미': 'circle', '점': 'dot', '테두리': 'ring' };
+
+  function Root() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    const themeKey = LABEL_TO_KEY[t.theme] || 'matcha';
+    return (
+      <React.Fragment>
+        <IOSDevice width={402} height={874}>
+          <MobileApp theme={themeKey} showWeekends={t.showWeekends} todayStyle={t.todayStyle} />
+        </IOSDevice>
+        <TweaksPanel>
+          <TweakSection label="색상 테마 · Theme" />
+          <TweakSelect label="테마" value={t.theme} options={THEME_LABELS}
+                       onChange={(v) => setTweak('theme', v)} />
+          <TweakSection label="달력 · Calendar" />
+          <TweakRadio label="오늘 표시 (Today marker)" value={TODAY_LABELS[t.todayStyle] || '동그라미'}
+                      options={['동그라미', '점', '테두리']}
+                      onChange={(v) => setTweak('todayStyle', TODAY_KEYS[v])} />
+          <TweakToggle label="주말 표시 (Show weekends)" value={t.showWeekends}
+                       onChange={(v) => setTweak('showWeekends', v)} />
+        </TweaksPanel>
+      </React.Fragment>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
+</script>
+</body>
+</html>

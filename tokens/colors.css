@@ -1,0 +1,49 @@
+/* ── Vitamin Calendar · Color tokens ────────────────────────────
+   Soft, warm, pastel palette. Two people, two hues:
+   matcha green = 정화 (Junghwa) · peach = 해인 (Haein). */
+:root {
+  /* Surfaces */
+  --bg:        #f8f8f4;  /* soft paper background */
+  --surface:   #ffffff;  /* cards, cells */
+  --surface-2: #f1f2ec;  /* recessed tracks, hover fills */
+  --weekend-bg:#f2f4ee;  /* muted weekend cells */
+
+  /* Brand · 정화 (matcha green) */
+  --accent:        #BACD92;
+  --accent-light:  #eef4e2;
+  --accent-mid:    #cfe0a8;
+  --accent-deep:   #5f7a35;  /* readable on white — numerals, labels */
+
+  /* Brand · 해인 (peach) */
+  --accent-2:       #F5DAD2;
+  --accent-2-light: #fdf3ef;
+  --accent-2-mid:   #f6c9bd;
+  --accent-2-deep:  #c06b50;  /* readable on white */
+
+  /* Text on a filled accent (button, checked toggle) */
+  --on-accent:   #2c3416;
+  --on-accent-2: #5e342a;
+
+  /* Text */
+  --text:       #29271c;
+  --text-muted: #8a8a78;
+  --text-faint: #c3c3b4;
+  --text-on-accent: #2c3416;
+
+  /* Lines */
+  --border: #e8e7dc;
+
+  /* Status */
+  --status-ok:      #6dbf8a;
+  --status-error:   #c06b50;
+  --status-loading: #e3b552;
+  --status-missed:  #f6c9bd;
+
+  /* ── Semantic aliases ─────────────────────────────────────── */
+  --text-body:    var(--text);
+  --text-heading: var(--text);
+  --surface-card: var(--surface);
+  --surface-page: var(--bg);
+  --surface-sunken: var(--surface-2);
+  --border-card:  var(--border);
+}

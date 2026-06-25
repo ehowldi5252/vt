@@ -1,0 +1,57 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Core primitives" subtitle="Button · NameTag · Card · ProgressBar · SyncBadge" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg);font-family:var(--font-body);padding:18px;}
+  .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .sec{font-size:11px;color:var(--text-faint);font-weight:500;margin:0 0 8px;letter-spacing:.2px;}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const { Button, NameTag, Card, ProgressBar, SyncBadge } = window.VitaminCalendarDesignSystem_00e06a;
+  function Demo() {
+    return (
+      <div>
+        <p className="sec">Button</p>
+        <div className="row">
+          <Button variant="primary">저장</Button>
+          <Button variant="pink">완료</Button>
+          <Button variant="default">취소</Button>
+          <Button variant="ghost">건너뛰기</Button>
+          <Button variant="default" size="icon">&#8249;</Button>
+          <Button variant="default" size="icon">&#8250;</Button>
+          <Button variant="primary" size="sm">작게</Button>
+          <Button variant="primary" disabled>비활성</Button>
+        </div>
+        <p className="sec">NameTag &nbsp;·&nbsp; SyncBadge</p>
+        <div className="row">
+          <NameTag person="junghwa">정화</NameTag>
+          <NameTag person="haein">해인</NameTag>
+          <NameTag tone="neutral">주말</NameTag>
+          <SyncBadge status="ok" />
+          <SyncBadge status="loading" />
+          <SyncBadge status="error" label="저장 실패" />
+        </div>
+        <p className="sec">Card &nbsp;·&nbsp; ProgressBar</p>
+        <div className="row" style={{alignItems:'stretch'}}>
+          <Card padding="sm" style={{flex:1, minWidth:240, display:'flex', flexDirection:'column', gap:10}}>
+            <ProgressBar person="junghwa" label="정화 복용률" value={82} />
+            <ProgressBar person="haein" label="해인 복용률" value={64} />
+          </Card>
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

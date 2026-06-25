@@ -1,0 +1,306 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/calendar/**",
+              "components/core/**",
+              "ui_kits/vitamin-calendar/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Gmarket Sans|Noto Sans KR))/i]",
+        "message": "Font not provided by the design system. Available: Gmarket Sans, Noto Sans KR."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|person|disabled|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, person, disabled, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:default|primary|pink|ghost)$/]",
+        "message": "<Button> variant must be one of 'default' | 'primary' | 'pink' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|icon)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'icon'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='person'] > Literal[value!=/^(?:junghwa|haein)$/]",
+        "message": "<Button> person must be one of 'junghwa' | 'haein'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CellRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:person|label|checked|onChange|key|ref|className|style|children)$/]",
+        "message": "<CellRow> doesn't accept that prop. Declared props: person, label, checked, onChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CellRow'] > JSXAttribute[name.name='person'] > Literal[value!=/^(?:junghwa|haein)$/]",
+        "message": "<CellRow> person must be one of 'junghwa' | 'haein'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:padding|elevated|children|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: padding, elevated, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute[name.name='padding'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Card> padding must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NameTag'] > JSXAttribute > JSXIdentifier[name!=/^(?:person|tone|children|key|ref|className|style|children)$/]",
+        "message": "<NameTag> doesn't accept that prop. Declared props: person, tone, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NameTag'] > JSXAttribute[name.name='person'] > Literal[value!=/^(?:junghwa|haein)$/]",
+        "message": "<NameTag> person must be one of 'junghwa' | 'haein'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NameTag'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:purple|pink|neutral)$/]",
+        "message": "<NameTag> tone must be one of 'purple' | 'pink' | 'neutral'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProgressBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|person|label|showPct|key|ref|className|style|children)$/]",
+        "message": "<ProgressBar> doesn't accept that prop. Declared props: value, person, label, showPct."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProgressBar'] > JSXAttribute[name.name='person'] > Literal[value!=/^(?:junghwa|haein)$/]",
+        "message": "<ProgressBar> person must be one of 'junghwa' | 'haein'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatGroup'] > JSXAttribute > JSXIdentifier[name!=/^(?:person|name|caption|stats|key|ref|className|style|children)$/]",
+        "message": "<StatGroup> doesn't accept that prop. Declared props: person, name, caption, stats."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatGroup'] > JSXAttribute[name.name='person'] > Literal[value!=/^(?:junghwa|haein)$/]",
+        "message": "<StatGroup> person must be one of 'junghwa' | 'haein'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SyncBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:status|label|key|ref|className|style|children)$/]",
+        "message": "<SyncBadge> doesn't accept that prop. Declared props: status, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SyncBadge'] > JSXAttribute[name.name='status'] > Literal[value!=/^(?:ok|loading|error|idle)$/]",
+        "message": "<SyncBadge> status must be one of 'ok' | 'loading' | 'error' | 'idle'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='VitaminCheck'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|person|checked|missed|onChange|style|key|ref|className|style|children)$/]",
+        "message": "<VitaminCheck> doesn't accept that prop. Declared props: label, person, checked, missed, onChange, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='VitaminCheck'] > JSXAttribute[name.name='person'] > Literal[value!=/^(?:junghwa|haein)$/]",
+        "message": "<VitaminCheck> person must be one of 'junghwa' | 'haein'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "CellRow": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "NameTag": {
+        "replaces": []
+      },
+      "ProgressBar": {
+        "replaces": []
+      },
+      "StatGroup": {
+        "replaces": []
+      },
+      "SyncBadge": {
+        "replaces": []
+      },
+      "VitaminCheck": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-2",
+      "--accent-2-deep",
+      "--accent-2-light",
+      "--accent-2-mid",
+      "--accent-deep",
+      "--accent-light",
+      "--accent-mid",
+      "--bg",
+      "--border",
+      "--border-card",
+      "--border-strong",
+      "--border-width",
+      "--cell-min-h",
+      "--dur-base",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-out",
+      "--font-body",
+      "--font-display",
+      "--fs-2xs",
+      "--fs-base",
+      "--fs-h1",
+      "--fs-month",
+      "--fs-sm",
+      "--fs-stat",
+      "--fs-xs",
+      "--fw-bold",
+      "--fw-light",
+      "--fw-medium",
+      "--fw-regular",
+      "--lh-base",
+      "--lh-snug",
+      "--lh-tight",
+      "--on-accent",
+      "--on-accent-2",
+      "--page-max",
+      "--radius",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xs",
+      "--shadow-card",
+      "--shadow-none",
+      "--shadow-pop",
+      "--shadow-soft",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--status-error",
+      "--status-loading",
+      "--status-missed",
+      "--status-ok",
+      "--surface",
+      "--surface-2",
+      "--surface-card",
+      "--surface-page",
+      "--surface-sunken",
+      "--text",
+      "--text-body",
+      "--text-display",
+      "--text-faint",
+      "--text-heading",
+      "--text-muted",
+      "--text-on-accent",
+      "--tracking-tight",
+      "--weekend-bg"
+    ],
+    "tokenKinds": {
+      "--bg": "color",
+      "--surface": "color",
+      "--surface-2": "color",
+      "--weekend-bg": "color",
+      "--accent": "color",
+      "--accent-light": "color",
+      "--accent-mid": "color",
+      "--accent-deep": "color",
+      "--accent-2": "color",
+      "--accent-2-light": "color",
+      "--accent-2-mid": "color",
+      "--accent-2-deep": "color",
+      "--on-accent": "color",
+      "--on-accent-2": "color",
+      "--text": "font",
+      "--text-muted": "font",
+      "--text-faint": "font",
+      "--text-on-accent": "font",
+      "--border": "color",
+      "--status-ok": "color",
+      "--status-error": "color",
+      "--status-loading": "color",
+      "--status-missed": "color",
+      "--text-body": "font",
+      "--text-heading": "font",
+      "--surface-card": "color",
+      "--surface-page": "color",
+      "--surface-sunken": "color",
+      "--border-card": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--fw-light": "font",
+      "--fw-regular": "font",
+      "--fw-medium": "font",
+      "--fw-bold": "font",
+      "--fs-stat": "spacing",
+      "--fs-h1": "spacing",
+      "--fs-month": "spacing",
+      "--fs-base": "spacing",
+      "--fs-sm": "spacing",
+      "--fs-xs": "spacing",
+      "--fs-2xs": "spacing",
+      "--lh-tight": "font",
+      "--lh-snug": "font",
+      "--lh-base": "font",
+      "--tracking-tight": "font",
+      "--text-display": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--radius": "radius",
+      "--radius-sm": "radius",
+      "--radius-xs": "radius",
+      "--radius-pill": "radius",
+      "--page-max": "spacing",
+      "--cell-min-h": "spacing",
+      "--border-width": "other",
+      "--border-strong": "other",
+      "--shadow-none": "shadow",
+      "--shadow-soft": "shadow",
+      "--shadow-card": "shadow",
+      "--shadow-pop": "shadow",
+      "--ease-out": "other",
+      "--dur-fast": "other",
+      "--dur-base": "other",
+      "--dur-slow": "other"
+    },
+    "fontFamilies": [
+      "Gmarket Sans",
+      "Noto Sans KR"
+    ]
+  }
+}

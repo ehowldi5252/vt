@@ -1,0 +1,33 @@
+/* ── Vitamin Calendar · Typography tokens ───────────────────────
+   Gmarket Sans = display / numerals (rounded, friendly, bold).
+   Noto Sans KR = body / UI (clean Hangul + Latin). */
+:root {
+  --font-display: 'Gmarket Sans', 'Noto Sans KR', sans-serif;
+  --font-body:    'Noto Sans KR', sans-serif;
+
+  /* Weights */
+  --fw-light:   300;   /* @kind font */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium:  500;   /* @kind font */
+  --fw-bold:    700;   /* @kind font */
+
+  /* Type scale (px) — small, dense, calendar-friendly */
+  --fs-stat:    22px;  /* big numerals */
+  --fs-h1:      17px;  /* app title */
+  --fs-month:   16px;  /* calendar month */
+  --fs-base:    13px;  /* default UI text */
+  --fs-sm:      12px;  /* secondary labels */
+  --fs-xs:      11px;  /* tags, captions */
+  --fs-2xs:     10px;  /* in-cell vitamin labels */
+
+  /* Line-height */
+  --lh-tight: 1;     /* @kind font */
+  --lh-snug:  1.3;   /* @kind font */
+  --lh-base:  1.5;   /* @kind font */
+
+  /* Tracking */
+  --tracking-tight: -0.3px;
+
+  /* ── Semantic aliases ─────────────────────────────────────── */
+  --text-display: var(--font-display);
+}

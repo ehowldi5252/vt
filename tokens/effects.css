@@ -1,0 +1,23 @@
+/* ── Vitamin Calendar · Borders, shadows, motion ────────────────
+   The app is near-flat: 1px borders carry the structure, shadows
+   are barely-there. Motion is gentle — short fades + a soft "pop". */
+:root {
+  /* Hairline borders do the work */
+  --border-width: 1px;     /* @kind other */
+  --border-strong: 1.5px;  /* @kind other */
+
+  /* Shadows — used sparingly, soft and tinted toward the warm bg */
+  --shadow-none: none;
+  --shadow-soft: 0 1px 2px rgba(41,39,28,0.04);
+  --shadow-card: 0 2px 8px rgba(95,122,53,0.07);
+  --shadow-pop:  0 6px 20px rgba(95,122,53,0.16);
+
+  /* Motion */
+  --ease-out:    cubic-bezier(.4,0,.2,1);  /* @kind other */
+  --dur-fast:    0.15s;  /* @kind other */
+  --dur-base:    0.22s;  /* @kind other */
+  --dur-slow:    0.5s;   /* @kind other */
+}
+
+@keyframes vc-pop   { 0%{transform:scale(1)} 40%{transform:scale(1.06)} 100%{transform:scale(1)} }
+@keyframes vc-pulse { 0%,100%{opacity:1} 50%{opacity:.4} }

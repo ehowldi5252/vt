@@ -1,0 +1,32 @@
+/* ── Vitamin Calendar · Fonts ───────────────────────────────────
+   Noto Sans KR — Google Fonts (body / UI).
+   Gmarket Sans — Korean display face by Gmarket; not on Google
+   Fonts, loaded here from a public webfont CDN (woff2).
+
+   ⚠ SUBSTITUTION NOTE: Gmarket Sans is served from a community
+   CDN (webfontworld). If you have the official Gmarket Sans TTFs,
+   drop them into assets/fonts/ and repoint the src() URLs below. */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+@font-face {
+  font-family: 'Gmarket Sans';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gmarket Sans';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gmarket Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff2') format('woff2');
+}
