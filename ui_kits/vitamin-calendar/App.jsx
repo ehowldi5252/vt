@@ -7,8 +7,8 @@ const { Button, NameTag, Card, ProgressBar, SyncBadge, StatGroup, CalendarCell }
 const MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 const DAY_LABELS = ['일','월','화','수','목','금','토'];
 const PEOPLE = [
-  { key: 'junghwa', name: '정화', label: '정화 비타민' },
   { key: 'haein',   name: '해인', label: '해인 비타민' },
+  { key: 'junghwa', name: '정화', label: '정화 비타민' },
 ];
 
 const dayKey = (y, m, d) => `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
@@ -117,7 +117,7 @@ function VitaminCalendarApp() {
           <div style={{ width: 40, height: 40, background: 'var(--accent)', borderRadius: 11, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>💊</div>
           <div>
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 700, letterSpacing: '-.3px', margin: 0, color: 'var(--text)' }}>비타민 체크 달력</h1>
-            <p style={{ fontSize: 12, color: 'var(--text-muted)', margin: '1px 0 0' }}>정화 &amp; 해인의 매일 비타민</p>
+            <p style={{ fontSize: 12, color: 'var(--text-muted)', margin: '1px 0 0' }}>해인 &amp; 정화의 매일 비타민</p>
           </div>
         </div>
         <SyncBadge status={sync} />
@@ -125,7 +125,7 @@ function VitaminCalendarApp() {
 
       {/* Legend */}
       <div style={{ display: 'flex', gap: 16, marginBottom: '1.25rem' }}>
-        {[['j','정화 체크','var(--accent-light)','var(--accent-mid)'],['h','해인 체크','var(--accent-2-light)','var(--accent-2-mid)']].map(([k,t,bg,bd]) => (
+        {[['h','해인 체크','var(--accent-2-light)','var(--accent-2-mid)'],['j','정화 체크','var(--accent-light)','var(--accent-mid)']].map(([k,t,bg,bd]) => (
           <div key={k} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--text-muted)' }}>
             <span style={{ width: 10, height: 10, borderRadius: 3, background: bg, border: `1.5px solid ${bd}` }} />{t}
           </div>
@@ -134,14 +134,14 @@ function VitaminCalendarApp() {
 
       {/* Stats */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 10, marginBottom: '1.25rem' }}>
-        <StatGroup person="junghwa" name="정화" stats={[{ value: jS.checked, label: '복용 완료' }, { value: streak('junghwa'), label: '연속 복용일' }]} />
         <StatGroup person="haein" name="해인" stats={[{ value: hS.checked, label: '복용 완료' }, { value: streak('haein'), label: '연속 복용일' }]} />
+        <StatGroup person="junghwa" name="정화" stats={[{ value: jS.checked, label: '복용 완료' }, { value: streak('junghwa'), label: '연속 복용일' }]} />
       </div>
 
       {/* Progress */}
       <Card padding="sm" style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <ProgressBar person="junghwa" label="정화 복용률" value={jS.pct} />
         <ProgressBar person="haein" label="해인 복용률" value={hS.pct} />
+        <ProgressBar person="junghwa" label="정화 복용률" value={jS.pct} />
       </Card>
 
       {/* Calendar */}
